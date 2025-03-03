@@ -10,7 +10,7 @@ export default function Table() {
     },
     {
       count: '02',
-      name: 'Mr. Russel',
+      name: 'Mr. bilal',
       date: '11-04-2025',
       phone: '+1 509-858-4523',
       email: 'russel@amil.com',
