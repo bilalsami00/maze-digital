@@ -50,3 +50,6 @@ body {
 .font-afacad {
   font-family: "Afacad", sans-serif;
 }
+html, body {
+  overflow: auto;
+}

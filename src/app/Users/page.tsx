@@ -309,8 +309,8 @@ import Sidebar from "@/app/Sidebar/page";
 import Header from "@/app/Header/page";
 import Image from "next/image";
 
-export default function Leads() {
-  const leads = [
+export default function Users() {
+  const users = [
     {
       count: "01",
       name: "Mr. Russel",
@@ -348,13 +348,13 @@ export default function Leads() {
         <Sidebar />
       </aside>
 
-      {/* New Lead Button */}
+      {/* New User Button */}
       <div className="absolute right-10 top-[8rem] z-30">
         <button className="px-6 py-3 bg-white text-black rounded-full font-medium flex items-center gap-2 shadow-lg">
           <span className="text-lg bg-black p-2 text-yellow-500 rounded-full w-8 h-8 flex items-center justify-center">
             +
           </span>{" "}
-          New Lead
+          New User
         </button>
       </div>
 
@@ -374,7 +374,7 @@ export default function Leads() {
 
         {/* Table Container */}
         <div className="overflow-auto rounded-xl p-6 max-w-6xl">
-          <table className=" table-auto border-collapse rounded-[40px] overflow-hidden text-left">
+          <table className="table-auto border-collapse rounded-[40px] overflow-hidden text-left">
             <thead>
               <tr className="text-gray-700">
                 {["Count", "Name", "Date", "Phone", "Email"].map((heading) => (
@@ -388,32 +388,62 @@ export default function Leads() {
               </tr>
             </thead>
             <tbody>
-              {leads.map((lead, index) => (
+              {users.map((user, index) => (
                 <tr key={index} className="text-gray-700">
                   <td className="py-3 text-center border-b">
                     <span className="px-4 py-2 bg-gray-400 text-white rounded-2xl">
-                      {lead.count}
+                      {user.count}
                     </span>
                   </td>
                   <td className="py-3 text-center border-b">
-                    <span className="w-full block px-4 py-2 bg-white text-black rounded-[1.85rem] whitespace-nowrap px-12 py-6">
-                      {lead.name}
+                    <span className="block px-12 py-6 bg-white text-black rounded-[1.85rem] whitespace-nowrap">
+                      {user.name}
                     </span>
                   </td>
-                  <td className="py-3 text-center">
-                    <span className="w-full block px-4 py-2 bg-white text-black rounded-[1.85rem] whitespace-nowrap px-12 py-6">
-                      {lead.date}
-                    </span>
+                  <td className="py-3 text-center relative">
+                    <div className="relative inline-block w-[125px] h-[100px]">
+                      <Image
+                        src="/images/bubbles/date-bub.png"
+                        alt="Date Background"
+                        width={125}
+                        height={100}
+                        className="absolute top-0"
+                      />
+                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                        {user.date}
+                      </span>
+                    </div>
                   </td>
-                  <td className="py-3 text-center">
-                    <span className="w-full block px-4 py-2 bg-white text-black rounded-[1.85rem] whitespace-nowrap px-12 py-6">
-                      {lead.phone}
-                    </span>
+                  {/* Phone */}
+                  <td className="py-3 text-center relative">
+                    <div className="relative inline-block w-[166px] h-[100px]">
+                      <Image
+                        src="/images/bubbles/phone-bub.png"
+                        alt="Phone Background"
+                        width={166}
+                        height={100}
+                        className="absolute top-0"
+                      />
+                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                        {user.phone}
+                      </span>
+                    </div>
                   </td>
-                  <td className="py-3 text-center">
-                    <span className="w-full block px-4 py-2 bg-white text-black rounded-[1.85rem] whitespace-nowrap px-12 py-6">
-                      {lead.email}
-                    </span>
+
+                  {/* Email */}
+                  <td className="py-3 text-center relative">
+                    <div className="relative inline-block w-[212px] h-[100px]">
+                      <Image
+                        src="/images/bubbles/email-bub.png"
+                        alt="Email Background"
+                        width={212}
+                        height={100}
+                        className="absolute top-0"
+                      />
+                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                        {user.email}
+                      </span>
+                    </div>
                   </td>
                 </tr>
               ))}

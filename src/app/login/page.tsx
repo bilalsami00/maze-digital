@@ -147,7 +147,6 @@
 //   Please login here to check out your upcoming leads.
 // </p>
 
-
 //           <form className="mt-2" onSubmit={handleLogin}>
 //             {/* Email Input */}
 //             <input
@@ -204,7 +203,6 @@
 //     </div>
 //   );
 // }
-
 
 "use client";
 import React, { useState } from "react";
@@ -269,15 +267,19 @@ export default function Login() {
                 className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
                 onClick={() => setPasswordVisible(!passwordVisible)}
               >
-                <Image src={eyeIcon} alt="Toggle Password Visibility" width={24} height={24} />
+                <Image
+                  src={eyeIcon}
+                  alt="Toggle Password Visibility"
+                  width={24}
+                  height={24}
+                />
               </span>
             </div>
 
             {/* Forgot Password */}
             <div className="text-right mt-2 text-[16px] font-afacad font-medium leading-[22px] tracking-[0%] text-[#1F1F1F] cursor-pointer">
-  Forgot Password
-</div>
-
+              Forgot Password
+            </div>
 
             {/* Circular Login Button */}
             <div
