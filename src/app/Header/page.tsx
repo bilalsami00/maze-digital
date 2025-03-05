@@ -277,7 +277,7 @@ const Header = () => {
           <img
             src="/images/logo.png"
             alt="Logo"
-            className="w-[100px] sm:w-[120px] md:w-[140px] lg:w-[186px] h-auto object-contain"
+            className="w-[100px] sm:w-[120px] md:w-[140px] lg:w-[186px] object-contain"
           />
         </div>
 
@@ -387,7 +387,7 @@ const Header = () => {
                leading-tight sm:leading-[70px] md:leading-[80px] 
                tracking-normal 
                w-full max-w-[491px] 
-               mt-[162px] sm:mt-[140px] md:mt-[120px]">
+               mt-[2px] sm:mt-[40px] md:mt-[50px]">
         Elite Ghost Writing.
       </h1>
     </div>
