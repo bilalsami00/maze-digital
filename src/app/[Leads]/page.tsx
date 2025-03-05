@@ -672,7 +672,7 @@ export default function Leads() {
 
     {/* Main Content - CHANGED */}
       {/* New Lead Button (Unchanged) */}
-      <div className="absolute right-10 top-[8rem] z-30">
+      {/* <div className="absolute right-10 top-[8rem] z-30">
       <button className="pl-12 pr-6 py-4 bg-transparent text-black rounded-full font-medium flex items-center gap-2 shadow-lg relative overflow-visible">
         <Image
           src="/images/newLeadPlus.png"
@@ -683,7 +683,7 @@ export default function Leads() {
         />
         <span className="ml-auto">New Lead</span>
       </button>
-    </div>
+    </div> */}
 
     <div className="flex-1 min-h-screen relative mt-64 bg-white bg-opacity-20 p-6 overflow-auto rounded-[40px]  mx-8">
 
