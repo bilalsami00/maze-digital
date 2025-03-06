@@ -944,6 +944,18 @@ export default function Leads() {
       assignBy: "Alice Smith",
       comments: "109",
     },
+    {
+      count: "01",
+      name: "Mr. Russel",
+      date: "11-04-2025",
+      phone: "+1 509-858-4523",
+      email: "russel.gibbs@gmail.com",
+      zipCode: "33142",
+      description: "Some description here...",
+      assignTo: "Hassan Osama",
+      assignBy: "Huzaifa Aijaz",
+      comments: "115",
+    },
   ];
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
@@ -984,271 +996,276 @@ export default function Leads() {
         <Header />
       </header>
 
-      {/* Sidebar */}
-      <aside
-        className={`transition-all duration-300 ${
-          isSidebarOpen ? "w-[250px]" : "w-[250px] -translate-x-full"
-        } min-h-screen relative mt-64`}
-      >
-        <Sidebar />
-      </aside>
+      {/* Sidebar + Main Content Wrapper */}
+      <div className="flex flex-row w-full min-h-screen relative">
+        {/* Sidebar */}
+        <aside
+          className={` md:relative z-50 min-h-screen transition-all duration-300 overflow-hidden ${
+            isSidebarOpen
+              ? "translate-x-0 w-[250px] opacity-100"
+              : "w-0 opacity-0"
+          } md:w-[250px] md:translate-x-0 md:opacity-100 mt-64`}
+        >
+          {isSidebarOpen && <Sidebar />} {/* Render Sidebar only when open */}
+        </aside>
 
-      <button
-        onClick={toggleSidebar}
-        className="absolute bottom-8 left-[30px] z-50 bg-white p-4 rounded-full shadow-lg transition-all duration-300"
-      >
-        <Image
-          src="/images/Group 8 (1).png"
-          alt="Toggle Sidebar"
-          width={40}
-          height={40}
-          className="object-contain"
-        />
-      </button>
+        {/* Sidebar Toggle Button */}
+        <button
+          onClick={toggleSidebar}
+          className="absolute bottom-8 left-[30px] z-50 bg-white p-4 rounded-full shadow-lg transition-all duration-300"
+        >
+          <Image
+            src="/images/Group 8 (1).png"
+            alt="Toggle Sidebar"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
+        </button>
 
-      {/* New Lead Button (Unchanged) */}
-      <div className="absolute right-10 top-[16rem] z-30">
-  <button className="px-6 py-3 md:px-12 md:py-4 bg-transparent text-black rounded-full font-medium flex items-center gap-2 shadow-lg relative">
-    <Image
-      src="/images/newLeadPlus.png"
-      alt="New Lead Plus Icon"
-      width={50}
-      height={50}
-      className="absolute left-[-20px] top-0 md:left-[-8px] md:top-[5px] z-10"
-    />
-    {/* Hide text on small screens */}
-    <span className="whitespace-nowrap hidden md:inline">New Lead</span>
-  </button>
-</div>
-
-
-      {/* Main Content - CHANGED */}
-      <div className="flex-1 min-h-screen relative mt-64 bg-white bg-opacity-20 p-6 overflow-auto rounded-[40px]  mx-8">
-        {/* Tabs */}
-        <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
-          <div className="flex space-x-4 p-4 rounded-xl">
-            <button className="px-16 py-2 bg-yellow-400 text-black rounded-full font-medium">
-              Main Lead Board
-            </button>
-            <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
-              SMM Leads
-            </button>
-            <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
-              PPC Leads
-            </button>
-          </div>
+        {/* New Lead Button (Unchanged) */}
+        <div className="absolute right-10 top-[11rem] z-30">
+          <button className="px-6 py-3 md:px-12 md:py-4 bg-transparent text-black rounded-full font-medium flex items-center gap-2 shadow-lg relative">
+            <Image
+              src="/images/newLeadPlus.png"
+              alt="New Lead Plus Icon"
+              width={50}
+              height={50}
+              className="absolute left-[-20px] top-0 md:left-[-8px] md:top-[5px] z-10"
+            />
+            {/* Hide text on small screens */}
+            <span className="whitespace-nowrap hidden md:inline">New Lead</span>
+          </button>
         </div>
 
-        {/* Table Container */}
-        <div className="overflow-auto rounded-xl p-6 w-full max-w-6xl mx-auto">
-          <table className="w-full table-auto border-collapse rounded-lg overflow-hidden text-left">
-            <thead>
-              <tr className="text-gray-700">
-                {[
-                  "Count",
-                  "Name",
-                  "Date",
-                  "Phone",
-                  "Email",
-                  "Zip Code",
-                  "Description",
-                  "Assign to",
-                  "Assign by",
-                  "Comments",
-                ].map((heading) => (
-                  <th
-                    key={heading}
-                    className="px-6 py-3 font-medium text-center"
-                  >
-                    {heading}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {leads.map((lead, index) => (
-                <tr key={index} className="text-gray-700">
-                  {/* Count */}
-                  <td className="py-3 text-center border-b">
-                    <span className="px-4 py-2 bg-gray-400 text-white rounded-2xl">
-                      {lead.count}
-                    </span>
-                  </td>
+        {/* Main Content - CHANGED */}
+        <div className="flex-1 min-h-screen relative mt-64 bg-white bg-opacity-20 p-6 overflow-auto rounded-[40px]  mx-8">
+          {/* Tabs */}
+          <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
+            <div className="flex space-x-4 p-4 rounded-xl">
+              <button className="px-16 py-2 bg-yellow-400 text-black rounded-full font-medium">
+                Main Lead Board
+              </button>
+              <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
+                SMM Leads
+              </button>
+              <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
+                PPC Leads
+              </button>
+            </div>
+          </div>
 
-                  {/* Name */}
-                  <td className="py-3 text-center border-b">
-                    <span className="w-full block px-4 py-2 bg-white text-black rounded-[1.85rem] whitespace-nowrap">
-                      {lead.name}
-                    </span>
-                  </td>
-
-                  {/* Date */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[125px] h-[100px]">
-                      <Image
-                        src="/images/bubbles/date-bub.png"
-                        alt="Date Background"
-                        width={125}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {lead.date}
-                      </span>
-                    </div>
-                  </td>
-
-                  {/* Phone */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[166px] h-[100px]">
-                      <Image
-                        src="/images/bubbles/phone-bub.png"
-                        alt="Phone Background"
-                        width={166}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {lead.phone}
-                      </span>
-                    </div>
-                  </td>
-
-                  {/* Email */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[212px] h-[100px]">
-                      <Image
-                        src="/images/bubbles/email-bub.png"
-                        alt="Email Background"
-                        width={212}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {lead.email}
-                      </span>
-                    </div>
-                  </td>
-
-                  {/* Zip Code */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[87px] h-[100px]">
-                      <Image
-                        src="/images/bubbles/zip-bub.png"
-                        alt="Zip Code Background"
-                        width={87}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {lead.zipCode}
-                      </span>
-                    </div>
-                  </td>
-
-                  {/* Description */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[212px] h-[100px]">
-                      <Image
-                        src="/images/bubbles/description-bub.png"
-                        alt="Description Background"
-                        width={212}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {lead.description}
-                      </span>
-                    </div>
-                  </td>
-
-                  {/* Assign To */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[106px] h-[100px]">
-                      {/* Background Bubble Image */}
-                      <Image
-                        src="/images/bubbles/assign-to-by-comment-bub.png"
-                        alt="Assign To Background"
-                        width={106}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      {/* Lead Assigned Text */}
-                      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {lead.assignTo}
-                      </span>
-                      {/* Black Background Circle for Yellow Arrow */}
-                      <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <Image
-                          src="/images/yellowArrow.png"
-                          alt="Assign To Arrow"
-                          width={10}
-                          height={10}
-                          className="border-[1.5px] border-black"
-                        />
-                      </div>
-                    </div>
-                  </td>
-
-                  {/* Assign By */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[106px] h-[100px]">
-                      {/* Background Bubble Image */}
-                      <Image
-                        src="/images/bubbles/assign-to-by-comment-bub.png"
-                        alt="Assign By Background"
-                        width={106}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      {/* Assigned By Text */}
-                      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {lead.assignBy}
-                      </span>
-                      {/* Black Background Circle for Purple Arrow */}
-                      <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <Image
-                          src="/images/purpleArrow.png"
-                          alt="Assign By Arrow"
-                          width={10}
-                          height={10}
-                          className="border-[1.5px] border-black"
-                        />
-                      </div>
-                    </div>
-                  </td>
-
-                  {/* Comments */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[106px] h-[100px]">
-                      {/* Background Bubble Image */}
-                      <Image
-                        src="/images/bubbles/assign-to-by-comment-bub.png"
-                        alt="Comment Background"
-                        width={106}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      {/* Comment Text */}
-                      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {lead.comments}
-                      </span>
-                      {/* Black Background Circle for Green Arrow */}
-                      <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <Image
-                          src="/images/greenArrow.png"
-                          alt="Comment Arrow"
-                          width={10}
-                          height={10}
-                          className="border-[1.5px] border-black"
-                        />
-                      </div>
-                    </div>
-                  </td>
+          {/* Table Container */}
+          <div className="overflow-auto rounded-xl p-6 w-full max-w-6xl mx-auto">
+            <table className="w-full table-auto border-collapse rounded-lg overflow-hidden text-left">
+              <thead>
+                <tr className="text-gray-700">
+                  {[
+                    "Count",
+                    "Name",
+                    "Date",
+                    "Phone",
+                    "Email",
+                    "Zip Code",
+                    "Description",
+                    "Assign to",
+                    "Assign by",
+                    "Comments",
+                  ].map((heading) => (
+                    <th
+                      key={heading}
+                      className="px-6 py-3 font-medium text-center"
+                    >
+                      {heading}
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {leads.map((lead, index) => (
+                  <tr key={index} className="text-gray-700">
+                    {/* Count */}
+                    <td className="py-3 text-center border-b">
+                      <span className="px-4 py-2 bg-gray-400 text-white rounded-2xl">
+                        {lead.count}
+                      </span>
+                    </td>
+
+                    {/* Name */}
+                    <td className="py-3 text-center border-b">
+                      <span className="w-full block px-4 py-2 bg-white text-black rounded-[1.85rem] whitespace-nowrap">
+                        {lead.name}
+                      </span>
+                    </td>
+
+                    {/* Date */}
+                    <td className="py-3 text-center relative">
+                      <div className="relative inline-block w-[125px] h-[100px]">
+                        <Image
+                          src="/images/bubbles/date-bub.png"
+                          alt="Date Background"
+                          width={125}
+                          height={100}
+                          className="absolute top-0"
+                        />
+                        <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.date}
+                        </span>
+                      </div>
+                    </td>
+
+                    {/* Phone */}
+                    <td className="py-3 text-center relative">
+                      <div className="relative inline-block w-[166px] h-[100px]">
+                        <Image
+                          src="/images/bubbles/phone-bub.png"
+                          alt="Phone Background"
+                          width={166}
+                          height={100}
+                          className="absolute top-0"
+                        />
+                        <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.phone}
+                        </span>
+                      </div>
+                    </td>
+
+                    {/* Email */}
+                    <td className="py-3 text-center relative">
+                      <div className="relative inline-block w-[212px] h-[100px]">
+                        <Image
+                          src="/images/bubbles/email-bub.png"
+                          alt="Email Background"
+                          width={212}
+                          height={100}
+                          className="absolute top-0"
+                        />
+                        <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.email}
+                        </span>
+                      </div>
+                    </td>
+
+                    {/* Zip Code */}
+                    <td className="py-3 text-center relative">
+                      <div className="relative inline-block w-[87px] h-[100px]">
+                        <Image
+                          src="/images/bubbles/zip-bub.png"
+                          alt="Zip Code Background"
+                          width={87}
+                          height={100}
+                          className="absolute top-0"
+                        />
+                        <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.zipCode}
+                        </span>
+                      </div>
+                    </td>
+
+                    {/* Description */}
+                    <td className="py-3 text-center relative">
+                      <div className="relative inline-block w-[212px] h-[100px]">
+                        <Image
+                          src="/images/bubbles/description-bub.png"
+                          alt="Description Background"
+                          width={212}
+                          height={100}
+                          className="absolute top-0"
+                        />
+                        <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.description}
+                        </span>
+                      </div>
+                    </td>
+
+                    {/* Assign To */}
+                    <td className="py-3 text-center relative">
+                      <div className="relative inline-block w-[106px] h-[100px]">
+                        {/* Background Bubble Image */}
+                        <Image
+                          src="/images/bubbles/assign-to-by-comment-bub.png"
+                          alt="Assign To Background"
+                          width={106}
+                          height={100}
+                          className="absolute top-0"
+                        />
+                        {/* Lead Assigned Text */}
+                        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.assignTo}
+                        </span>
+                        {/* Black Background Circle for Yellow Arrow */}
+                        <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
+                          <Image
+                            src="/images/yellowArrow.png"
+                            alt="Assign To Arrow"
+                            width={10}
+                            height={10}
+                            className="border-[1.5px] border-black"
+                          />
+                        </div>
+                      </div>
+                    </td>
+
+                    {/* Assign By */}
+                    <td className="py-3 text-center relative">
+                      <div className="relative inline-block w-[106px] h-[100px]">
+                        {/* Background Bubble Image */}
+                        <Image
+                          src="/images/bubbles/assign-to-by-comment-bub.png"
+                          alt="Assign By Background"
+                          width={106}
+                          height={100}
+                          className="absolute top-0"
+                        />
+                        {/* Assigned By Text */}
+                        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.assignBy}
+                        </span>
+                        {/* Black Background Circle for Purple Arrow */}
+                        <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
+                          <Image
+                            src="/images/purpleArrow.png"
+                            alt="Assign By Arrow"
+                            width={10}
+                            height={10}
+                            className="border-[1.5px] border-black"
+                          />
+                        </div>
+                      </div>
+                    </td>
+
+                    {/* Comments */}
+                    <td className="py-3 text-center relative">
+                      <div className="relative inline-block w-[106px] h-[100px]">
+                        {/* Background Bubble Image */}
+                        <Image
+                          src="/images/bubbles/assign-to-by-comment-bub.png"
+                          alt="Comment Background"
+                          width={106}
+                          height={100}
+                          className="absolute top-0"
+                        />
+                        {/* Comment Text */}
+                        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.comments}
+                        </span>
+                        {/* Black Background Circle for Green Arrow */}
+                        <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
+                          <Image
+                            src="/images/greenArrow.png"
+                            alt="Comment Arrow"
+                            width={10}
+                            height={10}
+                            className="border-[1.5px] border-black"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
