@@ -1040,14 +1040,24 @@ export default function Leads() {
         </div>
 
         {/* Main Content - CHANGED */}
-        <div className="flex-1 min-h-screen relative mt-64 bg-white bg-opacity-20 p-6 overflow-scroll rounded-[40px]  mx-8">
+        <div
+          className="flex-1 min-h-screen relative mt-64 overflow-scroll rounded-[40px] mx-8"
+          style={{
+            backgroundImage: "url('/images/folder-bg.png')",
+            backgroundSize: "cover",
+            // backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
           {/* Tabs */}
-          <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
-            <div className="flex space-x-4 p-4 rounded-xl">
+          <div className="flex justify-between p-2 items-center w-full max-w-6xl mb-6">
+            <div className="flex space-x-5 rounded-xl">
               <button className="px-16 py-2 bg-yellow-400 text-black rounded-full font-medium">
                 Main Lead Board
               </button>
-              <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
+            </div>
+            <div className="flex space-x-4 rounded-xl pr-[11rem] pl-[4rem]">
+            <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
                 SMM Leads
               </button>
               <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">

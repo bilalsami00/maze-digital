@@ -469,7 +469,7 @@ const Sidebar = () => {
     },
     {
       name: "Leads",
-      href: "/Leads",
+      href: "/leads",
       bgSize: "w-[66px] h-[66px]",
       iconLight: "/images/sidebar-icons/leadsIcon-wb.png",
       textStyles: "font-afacad text-lg font-medium leading-7",
