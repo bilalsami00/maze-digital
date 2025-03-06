@@ -305,6 +305,7 @@
 
 "use client";
 
+import { useState, useEffect } from "react";
 import Sidebar from "@/app/Sidebar/page";
 import Header from "@/app/Header/page";
 import Image from "next/image";
@@ -325,44 +326,104 @@ export default function Users() {
       phone: "+1 509-858-4523",
       email: "john.doe@gmail.com",
     },
+    {
+      count: "03",
+      name: "Mr. John",
+      date: "11-04-2025",
+      phone: "+1 509-858-4523",
+      email: "john.doe@gmail.com",
+    },
+    {
+      count: "03",
+      name: "Mr. John",
+      date: "11-04-2025",
+      phone: "+1 509-858-4523",
+      email: "john.doe@gmail.com",
+    },
   ];
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth < 768) {
+          setIsSidebarOpen(false); // Collapse sidebar on smaller screens
+        } else {
+          setIsSidebarOpen(true); // Expand sidebar on large screens
+        }
+      };
+  
+      handleResize(); // Set initial state
+      window.addEventListener("resize", handleResize);
+  
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
+    const toggleSidebar = () => {
+      setIsSidebarOpen((prev) => !prev);
+    };
+
   return (
-    <div className="relative flex w-full h-screen overflow-hidden">
+    <div className="relative flex w-full min-h-screen overflow-visible flex-wrap">
       {/* Background Image */}
       <Image
         src="/images/ground.png"
         alt="Background"
         layout="fill"
         objectFit="cover"
-        className="absolute inset-0 -z-10"
+        className="bsolute inset-0 w-full h-full object-cover -z-10"
       />
 
       {/* Header */}
-      <header className="w-full h-[70px] fixed top-0 left-0 z-20">
+      <header className="w-full h-[70px] z-20 px-4 md:px-8">
         <Header />
       </header>
 
-      {/* Sidebar */}
-      <aside className="w-[250px] h-[calc(100vh-70px)] fixed left-0 z-20 !top-[14rem]">
-        <Sidebar />
-      </aside>
+      {/* Sidebar + Main Content Wrapper */}
+      <div className="flex flex-row w-full min-h-screen relative">
+        {/* Sidebar */}
+        <aside
+          className={` md:relative z-50 min-h-screen transition-all duration-300 overflow-hidden ${
+            isSidebarOpen
+              ? "translate-x-0 w-[250px] opacity-100"
+              : "w-0 opacity-0"
+          } md:w-[250px] md:translate-x-0 md:opacity-100 mt-64`}
+        >
+          {isSidebarOpen && <Sidebar />} {/* Render Sidebar only when open */}
+        </aside>
 
-      {/* New User Button */}
-      <div className="absolute right-10 top-[8rem] z-30">
-        <button className="px-6 py-3 bg-white text-black rounded-full font-medium flex items-center gap-2 shadow-lg">
-          <span className="text-lg bg-black p-2 text-yellow-500 rounded-full w-8 h-8 flex items-center justify-center">
-            +
-          </span>{" "}
-          New User
+        {/* Sidebar Toggle Button */}
+        <button
+          onClick={toggleSidebar}
+          className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 bg-white p-4 rounded-full shadow-lg transition-all duration-300"
+          >
+          <Image
+            src="/images/collapse.png"
+            alt="Toggle Sidebar"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
         </button>
-      </div>
+
+        {/* New User Button */}
+        <div className="absolute right-10 top-[11rem] z-30">
+          <button className="px-6 py-3 md:px-12 md:py-4 bg-transparent text-black rounded-full font-medium flex items-center gap-2 shadow-lg relative">
+            <Image
+              src="/images/newLeadPlus.png"
+              alt="New User Plus Icon"
+              width={50}
+              height={50}
+              className="absolute left-[-20px] top-0 md:left-[-8px] md:top-[5px] z-10"
+            />
+            {/* Hide text on small screens */}
+            <span className="whitespace-nowrap hidden md:inline">New User</span>
+          </button>
+        </div>
 
       {/* Main Content */}
-      <div
-        className="flex-1 flex flex-col h-full ml-[290px] mt-[200px] p-6 m-6 overflow-auto bg-white bg-opacity-20 h-[62vh]"
-        style={{ borderRadius: "40px" }}
-      >
+      <div className="flex-1 min-h-screen relative mt-64 bg-white bg-opacity-20 p-6 overflow-auto rounded-[40px]  mx-8">
+
         {/* Tabs & Button */}
         <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
           <div className="flex space-x-4 p-4 rounded-xl">
@@ -373,8 +434,12 @@ export default function Users() {
         </div>
 
         {/* Table Container */}
-        <div className="overflow-auto rounded-xl p-6 max-w-6xl">
-          <table className="table-auto border-collapse rounded-[40px] overflow-hidden text-left">
+        {/* <div className="overflow-auto rounded-xl p-6 max-w-6xl"> */}
+        <div className="overflow-auto rounded-xl p-6 w-full max-w-[46rem] mr-auto">
+
+          {/* <table className="table-auto border-collapse rounded-[40px] overflow-hidden text-left"> */}
+          <table className="w-full table-auto border-collapse rounded-lg overflow-hidden text-left">
+
             <thead>
               <tr className="text-gray-700">
                 {["Count", "Name", "Date", "Phone", "Email"].map((heading) => (
@@ -389,68 +454,77 @@ export default function Users() {
             </thead>
             <tbody>
               {users.map((user, index) => (
-                <tr key={index} className="text-gray-700">
-                  <td className="py-3 text-center border-b">
-                    <span className="px-4 py-2 bg-gray-400 text-white rounded-2xl">
-                      {user.count}
-                    </span>
-                  </td>
-                  <td className="py-3 text-center border-b">
-                    <span className="block px-12 py-6 bg-white text-black rounded-[1.85rem] whitespace-nowrap">
-                      {user.name}
-                    </span>
-                  </td>
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[125px] h-[100px]">
-                      <Image
-                        src="/images/bubbles/date-bub.png"
-                        alt="Date Background"
-                        width={125}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {user.date}
-                      </span>
-                    </div>
-                  </td>
-                  {/* Phone */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[166px] h-[100px]">
-                      <Image
-                        src="/images/bubbles/phone-bub.png"
-                        alt="Phone Background"
-                        width={166}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {user.phone}
-                      </span>
-                    </div>
-                  </td>
-
-                  {/* Email */}
-                  <td className="py-3 text-center relative">
-                    <div className="relative inline-block w-[212px] h-[100px]">
-                      <Image
-                        src="/images/bubbles/email-bub.png"
-                        alt="Email Background"
-                        width={212}
-                        height={100}
-                        className="absolute top-0"
-                      />
-                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                        {user.email}
-                      </span>
-                    </div>
-                  </td>
+                                <tr key={index} className="text-gray-700">
+                                  {/* Count */}
+                                  <td className="py-3 text-center border-b">
+                                    <span className="px-4 py-2 bg-gray-400 text-white rounded-2xl">
+                                      {user.count}
+                                    </span>
+                                  </td>
+              
+                                  {/* Name */}
+                                  <td className="py-3 text-center border-b">
+                                    <span className="w-full block px-4 py-2 bg-white text-black rounded-[1.85rem] whitespace-nowrap">
+                                      {user.name}
+                                    </span>
+                                  </td>
+              
+                                  {/* Date */}
+                                  <td className="py-3 text-center relative">
+                                    <div className="relative inline-block w-[125px] h-[100px]">
+                                      <Image
+                                        src="/images/bubbles/date-bub.png"
+                                        alt="Date Background"
+                                        width={125}
+                                        height={100}
+                                        className="absolute top-0"
+                                      />
+                                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                                        {user.date}
+                                      </span>
+                                    </div>
+                                  </td>
+              
+                                  {/* Phone */}
+                                  <td className="py-3 text-center relative">
+                                    <div className="relative inline-block w-[166px] h-[100px]">
+                                      <Image
+                                        src="/images/bubbles/phone-bub.png"
+                                        alt="Phone Background"
+                                        width={166}
+                                        height={100}
+                                        className="absolute top-0"
+                                      />
+                                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                                        {user.phone}
+                                      </span>
+                                    </div>
+                                  </td>
+              
+                                  {/* Email */}
+                                  <td className="py-3 text-center relative">
+                                    <div className="relative inline-block w-[212px] h-[100px]">
+                                      <Image
+                                        src="/images/bubbles/email-bub.png"
+                                        alt="Email Background"
+                                        width={212}
+                                        height={100}
+                                        className="absolute top-0"
+                                      />
+                                      <span className="absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                                        {user.email}
+                                      </span>
+                                    </div>
+                                  </td>
+              
+              
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -154,8 +154,6 @@
 
 // export default Header;
 
-
-
 // //////////////////////////////dasd////////////////////////////////////////////////////////////
 // "use client";
 // import { useState } from "react";
@@ -186,17 +184,17 @@
 //           >
 //             <input
 //               type="text"
-//               className="w-full h-[35px] sm:h-[45px] md:h-[55px] lg:h-[67px] 
-//              bg-white opacity-40 rounded-[40px] 
-//              pr-[50px] sm:pr-[60px] md:pr-[75px] lg:pr-[90px] 
+//               className="w-full h-[35px] sm:h-[45px] md:h-[55px] lg:h-[67px]
+//              bg-white opacity-40 rounded-[40px]
+//              pr-[50px] sm:pr-[60px] md:pr-[75px] lg:pr-[90px]
 //               focus:outline-none focus:ring focus:ring-blue-300"
 //               autoFocus
 //             />
 //             {/* 🔍 Single Search Icon Inside Input (Always Present) */}
 //             <button
 //               className="absolute top-1/2 right-0.5 sm:right-[-0.25rem] transform -translate-y-1/2
-//                bg-white w-[35px] sm:w-[45px] md:w-[55px] lg:w-[67px] 
-//              h-[35px] sm:h-[45px] md:h-[55px] lg:h-[67px]  
+//                bg-white w-[35px] sm:w-[45px] md:w-[55px] lg:w-[67px]
+//              h-[35px] sm:h-[45px] md:h-[55px] lg:h-[67px]
 //                flex items-center justify-center rounded-full cursor-pointer"
 //               onClick={() => setShowSearch(false)}
 //             >
@@ -222,7 +220,6 @@
 //   </button>
 // )}
 
-
 //           {/* 🛠️ Notification, Settings & Profile Icons */}
 //           <div className="flex items-center space-x-2 sm:space-x-4 md:space-x-6">
 //   {["Bell", "Settings", "User"].map((icon, index) => (
@@ -246,11 +243,11 @@
 //         </div>
 //       </header>
 
-//       <h1 className="font-afacad font-bold 
-//                text-4xl sm:text-5xl md:text-6xl lg:text-[66px] 
-//                leading-tight sm:leading-[70px] md:leading-[80px] 
-//                tracking-normal 
-//                w-full max-w-[491px] 
+//       <h1 className="font-afacad font-bold
+//                text-4xl sm:text-5xl md:text-6xl lg:text-[66px]
+//                leading-tight sm:leading-[70px] md:leading-[80px]
+//                tracking-normal
+//                w-full max-w-[491px]
 //                mt-[162px] sm:mt-[140px] md:mt-[120px]">
 //         Elite Ghost Writing.
 //       </h1>
@@ -259,7 +256,6 @@
 // };
 
 // export default Header;
-
 
 "use client";
 import { useState } from "react";
@@ -329,12 +325,16 @@ const Header = () => {
             </button>
           )}
 
-          {/* 🍔 Hamburger Menu (Mobile Only) */}
+          {/* 🍔 Custom Hamburger Menu (Mobile Only) */}
           <button
             className="sm:hidden bg-white w-[40px] h-[40px] flex items-center justify-center rounded-full cursor-pointer"
             onClick={() => setShowMenu(!showMenu)}
           >
-            <Menu className="w-[24px] h-[24px] text-black" />
+            <img
+              src="/images/threeDot.png"
+              alt="Menu"
+              className="w-[24px] h-[24px] object-contain"
+            />
           </button>
 
           {/* 🛠️ Notification, Settings & Profile Icons (Hidden on Mobile) */}
@@ -347,16 +347,22 @@ const Header = () => {
                  rounded-full flex items-center justify-center cursor-pointer"
               >
                 {icon === "Bell" && (
-                  <Bell className="w-[18px] sm:w-[22px] md:w-[26px] lg:w-[30px] 
-                   h-[18px] sm:h-[22px] md:h-[26px] lg:h-[30px] text-black" />
+                  <Bell
+                    className="w-[18px] sm:w-[22px] md:w-[26px] lg:w-[30px] 
+                   h-[18px] sm:h-[22px] md:h-[26px] lg:h-[30px] text-black"
+                  />
                 )}
                 {icon === "Settings" && (
-                  <Settings className="w-[18px] sm:w-[22px] md:w-[26px] lg:w-[30px] 
-                   h-[18px] sm:h-[22px] md:h-[26px] lg:h-[30px] text-black" />
+                  <Settings
+                    className="w-[18px] sm:w-[22px] md:w-[26px] lg:w-[30px] 
+                   h-[18px] sm:h-[22px] md:h-[26px] lg:h-[30px] text-black"
+                  />
                 )}
                 {icon === "User" && (
-                  <User className="w-[18px] sm:w-[22px] md:w-[26px] lg:w-[30px] 
-                   h-[18px] sm:h-[22px] md:h-[26px] lg:h-[30px] text-black" />
+                  <User
+                    className="w-[18px] sm:w-[22px] md:w-[26px] lg:w-[30px] 
+                   h-[18px] sm:h-[22px] md:h-[26px] lg:h-[30px] text-black"
+                  />
                 )}
               </div>
             ))}
@@ -373,7 +379,9 @@ const Header = () => {
               className="flex items-center space-x-3 py-2 cursor-pointer"
             >
               {icon === "Bell" && <Bell className="w-5 h-5 text-black" />}
-              {icon === "Settings" && <Settings className="w-5 h-5 text-black" />}
+              {icon === "Settings" && (
+                <Settings className="w-5 h-5 text-black" />
+              )}
               {icon === "User" && <User className="w-5 h-5 text-black" />}
               <span className="text-black">{icon}</span>
             </div>
@@ -382,12 +390,14 @@ const Header = () => {
       )}
 
       {/* 🔹 Heading - Adjusted for Figma */}
-      <h1 className="font-afacad font-bold 
+      <h1
+        className="font-afacad font-bold 
                text-4xl sm:text-5xl md:text-6xl lg:text-[66px] 
                leading-tight sm:leading-[70px] md:leading-[80px] 
                tracking-normal 
                w-full max-w-[491px] 
-               mt-[2px] sm:mt-[40px] md:mt-[50px]">
+               mt-[2px] sm:mt-[40px] md:mt-[50px]"
+      >
         Elite Ghost Writing.
       </h1>
     </div>

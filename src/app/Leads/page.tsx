@@ -912,6 +912,7 @@
 //   );
 // }
 
+// ////////////////////////////////////////approved///////////////////////////////////////////////////////////////////////////////
 "use client";
 import { useState, useEffect } from "react";
 import Sidebar from "@/app/Sidebar/page";
@@ -1009,13 +1010,13 @@ export default function Leads() {
           {isSidebarOpen && <Sidebar />} {/* Render Sidebar only when open */}
         </aside>
 
-        {/* Sidebar Toggle Button */}
+        {/* Sidebar Toggle Button - Always Visible at Bottom */}
         <button
           onClick={toggleSidebar}
-          className="absolute bottom-8 left-[30px] z-50 bg-white p-4 rounded-full shadow-lg transition-all duration-300"
+          className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 bg-white p-4 rounded-full shadow-lg transition-all duration-300"
         >
           <Image
-            src="/images/Group 8 (1).png"
+            src="/images/collapse.png"
             alt="Toggle Sidebar"
             width={40}
             height={40}
@@ -1039,7 +1040,7 @@ export default function Leads() {
         </div>
 
         {/* Main Content - CHANGED */}
-        <div className="flex-1 min-h-screen relative mt-64 bg-white bg-opacity-20 p-6 overflow-auto rounded-[40px]  mx-8">
+        <div className="flex-1 min-h-screen relative mt-64 bg-white bg-opacity-20 p-6 overflow-scroll rounded-[40px]  mx-8">
           {/* Tabs */}
           <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
             <div className="flex space-x-4 p-4 rounded-xl">
