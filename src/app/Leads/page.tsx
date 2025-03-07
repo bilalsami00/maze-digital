@@ -1075,7 +1075,7 @@ export default function Leads() {
           </div>
 
           {/* Table Container */}
-          <div className="overflow-auto rounded-xl p-6 w-full max-w-6xl mr-auto">
+          <div className="overflow-x-auto md:overflow-visible rounded-xl p-6 w-full max-w-6xl mr-auto">
             <table className="w-full table-auto border-collapse rounded-lg overflow-hidden text-left">
               <thead>
                 <tr className="text-gray-700">

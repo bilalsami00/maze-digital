@@ -442,7 +442,7 @@ export default function Users() {
             </div>
           </div>
           {/* Table Container */}
-          <div className=" rounded-xl p-6 w-full max-w-[46rem] mr-auto">
+          <div className=" overflow-x-auto md:overflow-visible rounded-xl p-6 w-full max-w-[46rem] mr-auto">
             <table className="w-full table-auto border-collapse rounded-lg overflow-hidden text-left">
               <thead>
                 <tr className="text-gray-700">
