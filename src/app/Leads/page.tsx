@@ -956,6 +956,14 @@ export default function Leads() {
       assignTo: "Hassan Osama",
       assignBy: "Huzaifa Aijaz",
       comments: "115",
+      
+    },
+    {
+      count: "03",
+      name: "Mr. John",
+      date: "11-04-2025",
+      phone: "+1 509-858-4523",
+      email: "john.doe@gmail.com",
     },
   ];
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -1050,19 +1058,23 @@ export default function Leads() {
           }}
         >
           {/* Tabs */}
-          <div className="flex justify-between p-2 items-center w-full max-w-6xl mb-6">
-            <div className="flex space-x-5 rounded-xl">
-              <button className="px-16 py-2 bg-yellow-400 text-black rounded-full font-medium">
+          <div className="flex items-center pl-[2rem] w-full max-w-6xl mb-6">
+            <div className="flex space-x-4 rounded-xl">
+            <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
+
+              <button className="px-12 py-2 bg-yellow-400 text-black rounded-full font-medium">
                 Main Lead Board
               </button>
             </div>
-            <div className="flex space-x-4 rounded-xl pr-[11rem] pl-[4rem]">
-            <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
+            <div className="flex space-x-4 rounded-xl pl-[4rem]">
+              <button className="px-12 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
                 SMM Leads
               </button>
-              <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
+              <button className="px-12 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
                 PPC Leads
               </button>
+              </div>
+
             </div>
           </div>
 
@@ -1085,28 +1097,43 @@ export default function Leads() {
                   ].map((heading) => (
                     <th
                       key={heading}
-                      className="px-6 py-3 font-medium text-center"
+                      className={` py-3 font-medium text-center ${
+                        heading === "Count"
+                          ? "pl-4"
+                          : heading === "Name"
+                          ? "pr-16"
+                          : "px-6"
+                      }`}
                     >
                       {heading}
                     </th>
                   ))}
                 </tr>
               </thead>
+
               <tbody>
                 {leads.map((lead, index) => (
                   <tr key={index} className="text-gray-700">
-                    {/* Count */}
-                    <td className="py-3 text-center border-b">
-                      <span className="px-4 py-2 bg-gray-400 text-white rounded-2xl">
-                        {lead.count}
-                      </span>
-                    </td>
+                    {/* Merged "Count" & "Name" inside the PNG but under separate headings */}
+                    <td className="py-3 text-center border-b" colSpan={2}>
+                      <div className="relative inline-flex items-center justify-center w-[239px] h-[100px]">
+                        {/* PNG Background */}
+                        <Image
+                          src="/images/bubbles/count-name-bub.png"
+                          alt="Count and Name Background"
+                          width={239}
+                          height={100}
+                          className="absolute top-0 left-0"
+                        />
 
-                    {/* Name */}
-                    <td className="py-3 text-center border-b">
-                      <span className="w-full block px-4 py-2 bg-white text-black rounded-[1.85rem] whitespace-nowrap">
-                        {lead.name}
-                      </span>
+                        {/* Count - Left Side Inside Image */}
+                        <span className="absolute left-[17%] top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.count}
+                        </span>
+                        <span className="absolute left-[52%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+                          {lead.name}
+                        </span>
+                      </div>
                     </td>
 
                     {/* Date */}
