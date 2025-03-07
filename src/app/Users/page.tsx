@@ -434,7 +434,7 @@ export default function Users() {
         >
           {" "}
           {/* Tabs & Button */}
-          <div className="flex items-center pl-[2rem] w-full max-w-6xl mb-6">
+          <div className="flex items-center pl-[2rem] w-full max-w-6xl mb-4">
             <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
               <button className="px-16 py-2 bg-yellow-400 text-black rounded-full font-medium">
                 All Users
@@ -450,7 +450,7 @@ export default function Users() {
                     (heading, index) => (
                       <th
                         key={heading}
-                        className={`py-3  font-medium text-center ${
+                        className={`py-3 font-medium text-center ${
                           heading === "Count"
                             ? "pl-4"
                             : heading === "Name"

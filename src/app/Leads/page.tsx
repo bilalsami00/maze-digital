@@ -956,7 +956,6 @@ export default function Leads() {
       assignTo: "Hassan Osama",
       assignBy: "Huzaifa Aijaz",
       comments: "115",
-      
     },
     {
       count: "03",
@@ -1049,7 +1048,7 @@ export default function Leads() {
 
         {/* Main Content - CHANGED */}
         <div
-          className="flex-1 min-h-screen relative mt-64 overflow-scroll rounded-[40px] mx-8"
+          className="flex-1 min-h-screen relative mt-64 overflow-auto rounded-[40px] mx-8"
           style={{
             backgroundImage: "url('/images/folder-bg.png')",
             backgroundSize: "cover",
@@ -1058,28 +1057,25 @@ export default function Leads() {
           }}
         >
           {/* Tabs */}
-          <div className="flex items-center pl-[2rem] w-full max-w-6xl mb-6">
+          <div className="flex items-center pl-[2rem] w-full max-w-6xl mb-4">
             <div className="flex space-x-4 rounded-xl">
-            <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
-
-              <button className="px-12 py-2 bg-yellow-400 text-black rounded-full font-medium">
-                Main Lead Board
-              </button>
-            </div>
-            <div className="flex space-x-4 rounded-xl pl-[4rem]">
-              <button className="px-12 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
-                SMM Leads
-              </button>
-              <button className="px-12 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
-                PPC Leads
-              </button>
+                <button className="px-12 py-2 bg-yellow-400 text-black rounded-full font-medium">
+                  Main Lead Board
+                </button>
+              
+              <div className="flex space-x-4 rounded-xl pl-[4rem]">
+                <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
+                  SMM Leads
+                </button>
+                <button className="px-16 py-2 bg-gray-200 text-gray-700 rounded-full border-[2px] border-white">
+                  PPC Leads
+                </button>
               </div>
-
             </div>
           </div>
 
           {/* Table Container */}
-          <div className="overflow-auto rounded-xl p-6 w-full max-w-6xl mx-auto">
+          <div className="overflow-auto rounded-xl p-6 w-full max-w-6xl mr-auto">
             <table className="w-full table-auto border-collapse rounded-lg overflow-hidden text-left">
               <thead>
                 <tr className="text-gray-700">
