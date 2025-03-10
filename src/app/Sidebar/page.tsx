@@ -449,6 +449,7 @@
 // };
 
 // export default Sidebar;
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 "use client";
 import Link from "next/link";
@@ -514,9 +515,8 @@ const Sidebar = () => {
       }}
     >
       <nav>
-        <ul className="space-y-4">
-          {menuItems.map(
-            ({ name, href, icon, iconLight, iconDark, textStyles, bgSize, iconSize }) => (
+        {/* <ul className="space-y-4">
+          {menuItems.map(({ name, href, icon, iconLight, iconDark, textStyles, bgSize, iconSize }) => (
               <li key={name} className="relative flex items-center space-x-3 p-2 rounded">
                 <span
                   className={`flex items-center justify-center rounded-full transition-all duration-300 ${
@@ -546,7 +546,43 @@ const Sidebar = () => {
               </li>
             )
           )}
-        </ul>
+        </ul> */}
+        <ul className="space-y-4">
+  {menuItems.map(({ name, href, icon, iconLight, iconDark, textStyles, bgSize, iconSize }) => (
+    <li key={name} className="relative">
+      <Link
+        href={href}
+        className="flex items-center space-x-3 p-2 rounded transition-all duration-300"
+      >
+        <span
+          className={`flex items-center justify-center rounded-full transition-all duration-300 ${
+            pathname === href ? "bg-black text-white scale-110" : "bg-white text-black scale-100"
+          } ${bgSize || "w-10 h-10"}`}
+        >
+          {iconLight && iconDark ? (
+            <Image
+              src={pathname === href ? iconDark : iconLight}
+              alt={`${name} Icon`}
+              width={22}
+              height={22}
+              className={iconSize || ""}
+            />
+          ) : (
+            <Image src={icon!} alt={`${name} Icon`} width={22} height={22} className={iconSize || ""} />
+          )}
+        </span>
+        <span
+          className={`flex-1 transition-all duration-300 ${
+            pathname === href ? "text-[#1F1F1F] font-semibold" : "text-gray-600 opacity-40"
+          } ${textStyles}`}
+        >
+          {name}
+        </span>
+      </Link>
+    </li>
+  ))}
+</ul>
+
       </nav>
     </aside>
   );
