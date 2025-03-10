@@ -10,13 +10,11 @@
 //     { name: "Chatbot", href: "/chatbot", icon: <MessageSquare size={20} /> },
 //     { name: "Task Manager", href: "/tasks", icon: <ClipboardList size={20} /> },
 //   ];
-  
-
 
 //   return (
 //     // <aside className=" top-32 text-white w-64 min-h-screen p-5 fixed ml-8" >
-    
-//     <aside className="text-white w-64 min-h-screen p-5 fixed ml-8" > 
+
+//     <aside className="text-white w-64 min-h-screen p-5 fixed ml-8" >
 //       <nav>
 //         <ul className="space-y-4 " >
 //           {menuItems.map(({ name, href, icon }) => (
@@ -75,7 +73,6 @@
 
 // export default Sidebar;
 
-
 // "use client";
 // import Link from "next/link";
 // import { usePathname } from "next/navigation";
@@ -85,32 +82,32 @@
 //   const pathname = usePathname(); // Get the current route
 
 //   const menuItems = [
-//     { 
-//       name: "Dashboard", 
-//       href: "/", 
-//       icon: "/images/sidebar-icons/dashboardIcon.png" 
+//     {
+//       name: "Dashboard",
+//       href: "/",
+//       icon: "/images/sidebar-icons/dashboardIcon.png"
 //     },
-//     { 
-//       name: "Leads", 
-//       href: "/Leads", 
-//       iconLight: "/images/sidebar-icons/leadsIcon-wb.png", 
-//       iconDark: "/images/sidebar-icons/leadsIcon-bb.png" 
+//     {
+//       name: "Leads",
+//       href: "/Leads",
+//       iconLight: "/images/sidebar-icons/leadsIcon-wb.png",
+//       iconDark: "/images/sidebar-icons/leadsIcon-bb.png"
 //     },
-//     { 
-//       name: "Users", 
-//       href: "/Users", 
+//     {
+//       name: "Users",
+//       href: "/Users",
 //       iconLight: "/images/sidebar-icons/userIcon-wb.png",
 //       iconDark: "/images/sidebar-icons/userIcon-bb.png"
 //     },
-//     { 
-//       name: "Chatbot", 
-//       href: "/chatbot", 
-//       icon: "/images/sidebar-icons/chatIcon.png" 
+//     {
+//       name: "Chatbot",
+//       href: "/chatbot",
+//       icon: "/images/sidebar-icons/chatIcon.png"
 //     },
-//     { 
-//       name: "Task Manager", 
-//       href: "/tasks", 
-//       icon: "/images/sidebar-icons/calenderIcon.png" 
+//     {
+//       name: "Task Manager",
+//       href: "/tasks",
+//       icon: "/images/sidebar-icons/calenderIcon.png"
 //     },
 //   ];
 
@@ -154,7 +151,6 @@
 
 // export default Sidebar;
 
-
 // "use client";
 // import Link from "next/link";
 // import { usePathname } from "next/navigation";
@@ -164,49 +160,49 @@
 //   const pathname = usePathname(); // Get the current route
 
 //   const menuItems = [
-//     { 
-//       name: "Dashboard", 
-//       href: "/", 
+//     {
+//       name: "Dashboard",
+//       href: "/",
 //       icon: "/images/sidebar-icons/dashboardIcon.png",
 //       textStyles: "font-afacad text-lg font-medium leading-7 opacity-40",
 //       // textPosition: "absolute top-[19px] left-[76px]",
 //       bgSize: "w-[66px] h-[66px]", // Background size (66x66)
 //       iconSize: "w-[22px] h-[22px] absolute top-[22px] left-[22px]" // Icon inside background (22px x 22px)
 //     },
-//     { 
-//       name: "Leads", 
-//       href: "/Leads", 
+//     {
+//       name: "Leads",
+//       href: "/Leads",
 //       bgSize: "w-[66px] h-[66px]",
-//       iconLight: "/images/sidebar-icons/leadsIcon-wb.png", 
+//       iconLight: "/images/sidebar-icons/leadsIcon-wb.png",
 //       textStyles: "font-afacad text-lg font-medium leading-7 opacity-40",
 
 //       // textStyles: "font-afacad text-lg font-medium leading-7 opacity-40",
-//       iconDark: "/images/sidebar-icons/leadsIcon-bb.png" 
+//       iconDark: "/images/sidebar-icons/leadsIcon-bb.png"
 //     },
-//     { 
-//       name: "Users", 
-//       href: "/Users", 
+//     {
+//       name: "Users",
+//       href: "/Users",
 //       iconLight: "/images/sidebar-icons/userIcon-wb.png",
 //       textStyles: "font-afacad text-lg font-medium leading-7 opacity-40",
 
 //       bgSize: "w-[66px] h-[66px]",
 //       iconDark: "/images/sidebar-icons/userIcon-bb.png"
 //     },
-//     { 
-//       name: "Chatbot", 
-//       href: "/chatbot", 
+//     {
+//       name: "Chatbot",
+//       href: "/chatbot",
 //       bgSize: "w-[66px] h-[66px]",
 //       textStyles: "font-afacad text-lg font-medium leading-7 opacity-40",
 
-//       icon: "/images/sidebar-icons/chatIcon.png" 
+//       icon: "/images/sidebar-icons/chatIcon.png"
 //     },
-//     { 
-//       name: "Task Manager", 
-//       href: "/tasks", 
+//     {
+//       name: "Task Manager",
+//       href: "/tasks",
 //       bgSize: "w-[66px] h-[66px]",
 //       textStyles: "font-afacad text-lg font-medium leading-7 opacity-40",
 
-//       icon: "/images/sidebar-icons/calenderIcon.png" 
+//       icon: "/images/sidebar-icons/calenderIcon.png"
 //     },
 //   ];
 
@@ -252,7 +248,6 @@
 
 // export default Sidebar;
 
-
 // "use client";
 // import Link from "next/link";
 // import { usePathname } from "next/navigation";
@@ -262,43 +257,43 @@
 //   const pathname = usePathname(); // Get the current route
 
 //   const menuItems = [
-//     { 
-//       name: "Dashboard", 
-//       href: "/", 
+//     {
+//       name: "Dashboard",
+//       href: "/",
 //       icon: "/images/sidebar-icons/dashboardIcon.png",
 //       textStyles: "font-afacad text-lg font-medium leading-7",
 //       bgSize: "w-[66px] h-[66px]", // Background size (66x66)
 //       iconSize: "w-[22px] h-[22px] absolute top-[22px] left-[22px]" // Icon inside background (22px x 22px)
 //     },
-//     { 
-//       name: "Leads", 
-//       href: "/Leads", 
+//     {
+//       name: "Leads",
+//       href: "/Leads",
 //       bgSize: "w-[66px] h-[66px]",
-//       iconLight: "/images/sidebar-icons/leadsIcon-wb.png", 
+//       iconLight: "/images/sidebar-icons/leadsIcon-wb.png",
 //       textStyles: "font-afacad text-lg font-medium leading-7",
-//       iconDark: "/images/sidebar-icons/leadsIcon-bb.png" 
+//       iconDark: "/images/sidebar-icons/leadsIcon-bb.png"
 //     },
-//     { 
-//       name: "Users", 
-//       href: "/Users", 
+//     {
+//       name: "Users",
+//       href: "/Users",
 //       iconLight: "/images/sidebar-icons/userIcon-wb.png",
 //       textStyles: "font-afacad text-lg font-medium leading-7",
 //       bgSize: "w-[66px] h-[66px]",
 //       iconDark: "/images/sidebar-icons/userIcon-bb.png"
 //     },
-//     { 
-//       name: "Chatbot", 
-//       href: "/chatbot", 
+//     {
+//       name: "Chatbot",
+//       href: "/chatbot",
 //       bgSize: "w-[66px] h-[66px]",
 //       textStyles: "font-afacad text-lg font-medium leading-7",
-//       icon: "/images/sidebar-icons/chatIcon.png" 
+//       icon: "/images/sidebar-icons/chatIcon.png"
 //     },
-//     { 
-//       name: "Task Manager", 
-//       href: "/tasks", 
+//     {
+//       name: "Task Manager",
+//       href: "/tasks",
 //       bgSize: "w-[66px] h-[66px]",
 //       textStyles: "font-afacad text-lg font-medium leading-7",
-//       icon: "/images/sidebar-icons/calenderIcon.png" 
+//       icon: "/images/sidebar-icons/calenderIcon.png"
 //     },
 //   ];
 
@@ -331,8 +326,8 @@
 //                   />
 //                 )}
 //               </span>
-//               <Link 
-//                 href={href} 
+//               <Link
+//                 href={href}
 //                 className={`flex-1 transition-all duration-300 ${
 //                   pathname === href ? "text-[#1F1F1F] font-semibold" : "text-gray-600 opacity-40"
 //                 } ${textStyles}`}
@@ -548,41 +543,61 @@ const Sidebar = () => {
           )}
         </ul> */}
         <ul className="space-y-4">
-  {menuItems.map(({ name, href, icon, iconLight, iconDark, textStyles, bgSize, iconSize }) => (
-    <li key={name} className="relative">
-      <Link
-        href={href}
-        className="flex items-center space-x-3 p-2 rounded transition-all duration-300"
-      >
-        <span
-          className={`flex items-center justify-center rounded-full transition-all duration-300 ${
-            pathname === href ? "bg-black text-white scale-110" : "bg-white text-black scale-100"
-          } ${bgSize || "w-10 h-10"}`}
-        >
-          {iconLight && iconDark ? (
-            <Image
-              src={pathname === href ? iconDark : iconLight}
-              alt={`${name} Icon`}
-              width={22}
-              height={22}
-              className={iconSize || ""}
-            />
-          ) : (
-            <Image src={icon!} alt={`${name} Icon`} width={22} height={22} className={iconSize || ""} />
+          {menuItems.map(
+            ({
+              name,
+              href,
+              icon,
+              iconLight,
+              iconDark,
+              textStyles,
+              bgSize,
+              iconSize,
+            }) => (
+              <li key={name} className="relative">
+                <Link
+                  href={href}
+                  className="flex items-center space-x-3 p-2 rounded transition-all duration-300"
+                >
+                  <span
+                    className={`flex items-center justify-center rounded-full transition-all duration-300 ${
+                      pathname === href
+                        ? "bg-black text-white scale-110"
+                        : "bg-white text-black scale-100"
+                    } ${bgSize || "w-10 h-10"}`}
+                  >
+                    {iconLight && iconDark ? (
+                      <Image
+                        src={pathname === href ? iconDark : iconLight}
+                        alt={`${name} Icon`}
+                        width={22}
+                        height={22}
+                        className={iconSize || ""}
+                      />
+                    ) : (
+                      <Image
+                        src={icon!}
+                        alt={`${name} Icon`}
+                        width={22}
+                        height={22}
+                        className={iconSize || ""}
+                      />
+                    )}
+                  </span>
+                  <span
+                    className={`flex-1 transition-all duration-300 ${
+                      pathname === href
+                        ? "text-[#1F1F1F] font-semibold"
+                        : "text-gray-600 opacity-40"
+                    } ${textStyles}`}
+                  >
+                    {name}
+                  </span>
+                </Link>
+              </li>
+            )
           )}
-        </span>
-        <span
-          className={`flex-1 transition-all duration-300 ${
-            pathname === href ? "text-[#1F1F1F] font-semibold" : "text-gray-600 opacity-40"
-          } ${textStyles}`}
-        >
-          {name}
-        </span>
-      </Link>
-    </li>
-  ))}
-</ul>
-
+        </ul>
       </nav>
     </aside>
   );

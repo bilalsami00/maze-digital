@@ -424,12 +424,13 @@ export default function Users() {
 
         {/* Main Content */}
         <div
-          className="flex-1 min-h-screen relative mt-64 overflow-scroll rounded-[40px] mx-8"
+          className="flex-1 min-h-screen relative mt-64 overflow-auto rounded-[40px] mx-8"
           style={{
             backgroundImage: "url('/images/folder-bg.png')",
             backgroundSize: "cover",
-            // backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
+            borderTopRightRadius: "100px",
+
           }}
         >
           {" "}
