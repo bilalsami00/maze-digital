@@ -302,7 +302,7 @@ const Header = () => {
               onClick={() => setShowSearch(false)}
             >
               <img
-                src="/images/search.png"
+                src="/images/search-16x.png"
                 alt="Search Icon"
                 className="w-[20px] sm:w-[24px] md:w-[30px] h-[20px] sm:h-[24px] md:h-[30px]"
               />
@@ -318,7 +318,7 @@ const Header = () => {
               onClick={() => setShowSearch(true)}
             >
               <img
-                src="/images/search.png"
+                src="/images/search-16x.png"
                 alt="Search Icon"
                 className="w-[18px] sm:w-[22px] md:w-[26px] lg:w-[30px] h-[18px] sm:h-[22px] md:h-[26px] lg:h-[30px]"
               />
@@ -327,13 +327,13 @@ const Header = () => {
 
           {/* 🍔 Custom Hamburger Menu (Mobile Only) */}
           <button
-            className="sm:hidden bg-white w-[40px] h-[40px] flex items-center justify-center rounded-full cursor-pointer"
+            className="sm:hidden bg-white w-[35px] h-[35px] flex items-center justify-center rounded-full cursor-pointer"
             onClick={() => setShowMenu(!showMenu)}
           >
             <img
-              src="/images/threeDot.png"
+              src="/images/dots.png"
               alt="Menu"
-              className="w-[24px] h-[24px] object-contain"
+              className="w-[20px] h-[20px] object-contain"
             />
           </button>
 
@@ -370,7 +370,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* 🍔 Mobile Menu (Expands When Hamburger Clicked) */}
+      {/* 🍔 Mobile Menu (Expands When three dots Clicked) */}
       {showMenu && (
         <div className="sm:hidden bg-white absolute right-4 top-16 p-4 rounded-lg shadow-lg z-50">
           {["Bell", "Settings", "User"].map((icon, index) => (

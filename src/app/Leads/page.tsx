@@ -1465,8 +1465,8 @@ export default function Leads() {
           style={{
             backgroundImage: "url('/images/folder-bg.png')",
             backgroundSize: "cover",
+            // backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            borderTopRightRadius: "100px",
           }}
         >
           {/* Tabs */}
@@ -1488,7 +1488,6 @@ export default function Leads() {
           </div>
 
           {/* Table Container */}
-          
           <div className="overflow-x-auto md:overflow-visible rounded-xl p-6 w-full max-w-6xl mr-auto">
             <table className="w-full table-auto border-collapse rounded-lg overflow-hidden text-left">
               <thead>
@@ -1647,7 +1646,7 @@ export default function Leads() {
                         {/* Black Background Circle for Yellow Arrow */}
                         <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
                           <Image
-                            src="/images/yellowArrow.png"
+                            src="/images/yellowArrow-4x.png"
                             alt="Assign To Arrow"
                             width={10}
                             height={10}
@@ -1676,7 +1675,7 @@ export default function Leads() {
                         {/* Black Background Circle for Purple Arrow */}
                         <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
                           <Image
-                            src="/images/purpleArrow.png"
+                            src="/images/purpleArrow-4x.png"
                             alt="Assign By Arrow"
                             width={10}
                             height={10}
@@ -1704,7 +1703,7 @@ export default function Leads() {
                         {/* Black Background Circle for Green Arrow */}
                         <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
                           <Image
-                            src="/images/greenArrow.png"
+                            src="/images/greenArrow-4x.png"
                             alt="Comment Arrow"
                             width={10}
                             height={10}
