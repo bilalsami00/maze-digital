@@ -1319,7 +1319,6 @@ import Image from "next/image";
 
 import LeadDetailsModal, { Lead } from "../LeadDetailsModal/page"; // ✅ Import Modal Component
 
-import CommentsModal from "../CommentsModal/page";
 
 export default function Leads() {
   const leads = [
@@ -1382,18 +1381,7 @@ export default function Leads() {
     setSelectedLead(null);
   };
 
-  const [selectedComments, setSelectedComments] = useState<string | null>(null);
-
-const openCommentsModal = (comments: string) => {
-  setSelectedComments(comments);
-};
-
-const closeCommentsModal = () => {
-  setSelectedComments(null);
-};
-
-
-
+ 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -1700,7 +1688,7 @@ const closeCommentsModal = () => {
                     </td>
 
                     {/* Comments */}
-<td className="py-3 text-center relative cursor-pointer" onClick={() => openCommentsModal(lead.comments ?? "")}>
+<td className="py-3 text-center relative cursor-pointer" onClick={() => openCommentsModal(lead.comments)}>
   <div className="relative inline-block w-[106px] h-[100px]">
     {/* Background Bubble Image */}
     <Image
@@ -1735,8 +1723,6 @@ const closeCommentsModal = () => {
         </div>
         {/* Lead Details Modal */}
         <LeadDetailsModal lead={selectedLead} onClose={closeModal} />
-        <CommentsModal comments={selectedComments} onClose={closeCommentsModal} />
-
       </div>
     </div>
   );
