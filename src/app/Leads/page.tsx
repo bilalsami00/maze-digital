@@ -1319,6 +1319,8 @@ import Image from "next/image";
 
 import LeadDetailsModal, { Lead } from "../LeadDetailsModal/page"; // ✅ Import Modal Component
 
+import CommentsModal from "../CommentsModal/page";
+
 export default function Leads() {
   const leads = [
     {
@@ -1379,6 +1381,18 @@ export default function Leads() {
   const closeModal = () => {
     setSelectedLead(null);
   };
+
+  const [selectedComments, setSelectedComments] = useState<string | null>(null);
+
+const openCommentsModal = (comments: string) => {
+  setSelectedComments(comments);
+};
+
+const closeCommentsModal = () => {
+  setSelectedComments(null);
+};
+
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -1686,32 +1700,33 @@ export default function Leads() {
                     </td>
 
                     {/* Comments */}
-                    <td className="py-3 text-center relative">
-                      <div className="relative inline-block w-[106px] h-[100px]">
-                        {/* Background Bubble Image */}
-                        <Image
-                          src="/images/bubbles/assign-to-by-comment-bub.png"
-                          alt="Comment Background"
-                          width={106}
-                          height={100}
-                          className="absolute top-0"
-                        />
-                        {/* Comment Text */}
-                        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
-                          {lead.comments}
-                        </span>
-                        {/* Black Background Circle for Green Arrow */}
-                        <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <Image
-                            src="/images/greenArrow-4x.png"
-                            alt="Comment Arrow"
-                            width={10}
-                            height={10}
-                            className="border-[1.5px] border-black"
-                          />
-                        </div>
-                      </div>
-                    </td>
+<td className="py-3 text-center relative cursor-pointer" onClick={() => openCommentsModal(lead.comments ?? "")}>
+  <div className="relative inline-block w-[106px] h-[100px]">
+    {/* Background Bubble Image */}
+    <Image
+      src="/images/bubbles/assign-to-by-comment-bub.png"
+      alt="Comment Background"
+      width={106}
+      height={100}
+      className="absolute top-0"
+    />
+    {/* Comment Text */}
+    <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-medium">
+      {lead.comments}
+    </span>
+    {/* Black Background Circle for Green Arrow */}
+    <div className="absolute top-[5px] left-[75%] transform -translate-x-1/2 bg-black w-[30px] h-[30px] rounded-full flex items-center justify-center">
+      <Image
+        src="/images/greenArrow-4x.png"
+        alt="Comment Arrow"
+        width={10}
+        height={10}
+        className="border-[1.5px] border-black"
+      />
+    </div>
+  </div>
+</td>
+
                   </tr>
                 ))}
               </tbody>
@@ -1720,6 +1735,8 @@ export default function Leads() {
         </div>
         {/* Lead Details Modal */}
         <LeadDetailsModal lead={selectedLead} onClose={closeModal} />
+        <CommentsModal comments={selectedComments} onClose={closeCommentsModal} />
+
       </div>
     </div>
   );

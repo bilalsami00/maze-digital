@@ -244,7 +244,8 @@ export default function LeadDetailsModal({
   if (!lead) return null;
 
   return (
-    <div className="absolute left-[60%] top-[450px] transform -translate-x-1/2 w-[90%] max-w-[580px] min-h-[416px]">
+    // <div className="absolute left-[60%] top-[450px] transform -translate-x-1/2 w-[90%] max-w-[580px] min-h-[416px]">
+    <div className="absolute left-[60%] top-[450px] transform -translate-x-[60%]  sm:-translate-x-1/2 w-[90%] max-w-[580px] min-h-[416px]">
       <div
         ref={modalRef}
         className="w-full h-full rounded-[40px] border-2 border-white p-6 shadow-lg backdrop-blur-md bg-white/20"
