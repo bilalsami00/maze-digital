@@ -1688,7 +1688,7 @@ export default function Leads() {
                     </td>
 
                     {/* Comments */}
-<td className="py-3 text-center relative cursor-pointer" onClick={() => openCommentsModal(lead.comments)}>
+<td className="py-3 text-center relative cursor-pointer">
   <div className="relative inline-block w-[106px] h-[100px]">
     {/* Background Bubble Image */}
     <Image
