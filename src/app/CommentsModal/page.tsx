@@ -29,14 +29,14 @@ export default function CommentsModal({ lead, onClose }: CommentsModalProps) {
 
   return (
     // <div
-    //   className="absolute left-1/2 top-[20%] transform -translate-x-1/2 w-[90%] max-w-[440px] min-h-[496px] 
+    //   className="absolute left-1/2 top-[20%] transform -translate-x-1/2 w-[90%] max-w-[440px] min-h-[496px]
     //   rounded-[40px] border-2 border-white bg-[#FFFFFF52] shadow-lg p-6 backdrop-blur-md"
     // >
-    <div className="absolute left-[60%] top-[39%] transform -translate-x-[60%] 
+    <div
+      className="absolute left-[60%] top-[39%] transform -translate-x-[60%] 
     sm:-translate-x-1/2 w-[90%] max-w-[440px] min-h-[496px]
-    rounded-[40px] border-2 border-white bg-[#FFFFFF52] shadow-lg p-6 backdrop-blur-md"
+    rounded-[40px] border-2 border-white bg-[#FFFFFF52] shadow-lg p-6 backdrop-blur-md "
     >
-
       <div ref={modalRef} className="w-full h-full relative">
         {/* Close Button */}
         <button
@@ -50,18 +50,17 @@ export default function CommentsModal({ lead, onClose }: CommentsModalProps) {
         <h2 className="text-[#1F1F1F] font-[600] text-[26px] leading-[32px] font-['Afacad Flux'] w-[90%] max-w-[500px] mx-auto text-left">
           Comments
         </h2>
-        
 
         {/* Comments Section */}
         <div className="text-[#1F1F1F] mt-6 w-[90%] max-w-[500px] mx-auto text-left">
-          <p className="text-[18px] leading-[32px] font-[500] w-[90%] max-w-[500px] mx-auto text-left">
+          <p className="text-[18px] leading-[32px] font-[500] break-words overflow-hidden">
             {lead.comments || "No comments available."}
           </p>
 
           {/* Message Box */}
           <div
             className="relative mt-6 w-full max-w-[270px] h-[90px] bg-white 
-            rounded-[50px] border border-gray-300 top-[15rem]"
+            rounded-[50px] border border-gray-300 top-[12rem]"
           >
             <textarea
               className="w-full h-full rounded-[50px] pt-3 pl-6 resize-none text-[16px] text-black"
@@ -84,4 +83,3 @@ export default function CommentsModal({ lead, onClose }: CommentsModalProps) {
     </div>
   );
 }
-
